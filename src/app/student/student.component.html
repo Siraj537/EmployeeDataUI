@@ -1,0 +1,97 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+        <h2 class="text-light primary py-3">
+            Student Management System
+        </h2>
+        <div class="d-flex">
+            <button class="btn btn-success" (click)="add()" data-toggle="modal" data-target="#exampleModal">Add Student</button>&nbsp;
+            <button class="btn btn-warning">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">S.Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">City</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allStudentsData">
+            <td>{{data.studentId}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.mobile}}</td>
+            <td>{{data.city}}</td>
+            <td>{{data.batch}}</td>
+            <td>
+                <button class="btn btn-info" (click)="update(data)" data-toggle="modal" data-target="#exampleModal" >Edit</button>&nbsp;
+                <button class="btn btn-danger" (click)="deleteStudent(data)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="background: tan;"class="modal-header">
+          <h5 style="color: aliceblue;font-size: 26px;"class="modal-title" id="exampleModalLabel">Student Management</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formvalue">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="name" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                    <small *ngIf="formvalue.get('name')?.invalid && formvalue.get('name')?.touched" class="text-danger">
+                        Name is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email"  formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small *ngIf="formvalue.get('email')?.invalid && formvalue.get('email')?.touched" class="text-danger">
+                        Email is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Mobile No.</label>
+                    <input type="number" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Mobile no">
+                    <small *ngIf="formvalue.get('mobile')?.invalid && formvalue.get('mobile')?.touched" class="text-danger">
+                        Mobile No. is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">City</label>
+                    <input type="city" formControlName="city"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter City">
+                    <small *ngIf="formvalue.get('city')?.invalid && formvalue.get('city')?.touched" class="text-danger">
+                        City is required
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Batch</label>
+                    <input type="batch" formControlName="batch"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Batch">
+                    <small *ngIf="formvalue.get('batch')?.invalid && formvalue.get('batch')?.touched" class="text-danger">
+                        Batch is required
+                    </small>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button  *ngIf="showadd" [disabled] = "formvalue.invalid" (click) = "addStudent()" type="button" class="btn btn-success">Add</button>
+           <button *ngIf="showupdate" (click)="updateStudent()" [disabled] = "formvalue.invalid" type="button" class="btn btn-success">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
