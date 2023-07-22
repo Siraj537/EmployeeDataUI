@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <span>
+        <a mat-icon-button routerLink="/" >Student Application</a> 
+    </span>
+    <span class="example-spacer"></span>
+    <a *ngIf="isLogged" style="padding-right: 100px" routerLink="/logout" (click) = "logout()"> logout </a>
+    
+</mat-toolbar>

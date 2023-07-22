@@ -59,7 +59,7 @@ export class StudentComponent {
       this.getAllStudents();
     },
     err =>{
-      alert("something went wrong!!!")
+      console.log("something went wrong!!!")
     }
     );
   }
@@ -69,7 +69,7 @@ export class StudentComponent {
      this.allStudentsData = res;
     },
     err =>{
-      alert("something went wrong!!!")
+      console.log("something went wrong!!!")
     }
     );
   }
