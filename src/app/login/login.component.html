@@ -9,6 +9,7 @@
                         <input matInput [(ngModel)] ="credentials.username"  name="username" placeholder="pat@example.com"  required>
                         <mat-error *ngIf="">{{"Enter user name"}}</mat-error>
                     </mat-form-field>
+
                     <mat-form-field class="full-width">
                         <mat-label>Enter your password</mat-label>
                         <input matInput [(ngModel)] ="credentials.password" name="password" [type]="hide ? 'password' : 'text'">
@@ -16,6 +17,16 @@
                           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                       </mat-form-field>
+
+                    <mat-form-field class="full-width">
+
+                        <mat-label>Role</mat-label>
+                        <mat-select [(value)]="credentials.role">
+                          <mat-option value="USER">User</mat-option>
+                          <mat-option value="ADMIN">Admin</mat-option>
+                        </mat-select>
+                        
+                    </mat-form-field>
                       <div class="container text-center">
                             <button type="submit" mat-raised-button color="primary"> Login </button>
                             <button style="margin-left: 10px ;" type="reset" mat-raised-button color="accent"> Reset </button>        

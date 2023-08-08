@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginserviceService } from '../shared/loginservice.service';
+import { LoginserviceService } from '../shared/services/login/loginservice.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent {
   hide = true;
   credentials = {
     username: "",
-    password: ""
+    password: "",
+    role: "USER"
   }
 
   onSubmit() {

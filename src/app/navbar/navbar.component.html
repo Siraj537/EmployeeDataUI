@@ -1,8 +1,23 @@
 <mat-toolbar color="primary">
     <span>
-        <a mat-icon-button routerLink="/" >Student Application</a> 
+        <a mat-icon-button routerLink="/">Student Application</a>
     </span>
     <span class="example-spacer"></span>
-    <a *ngIf="isLogged" style="padding-right: 100px" routerLink="/logout" (click) = "logout()"> logout </a>
-    
+    <!-- <a *ngIf="!isLogged" style="padding-right: 100px" (click) = "signupAction()"> SignUp </a> -->
+    <!-- <a *ngIf="isLogged" style="padding-right: 100px" routerLink="/logout" (click)="logout()"> logout </a> -->
+
+    <p mat-icon-button #menuTrigger1="matMenuTrigger" (mouseover)="openMyMenu(menuTrigger1)"
+        [matMenuTriggerFor]="myMenu1" style="padding-right: 100px;padding-top: 25px"> Actions </p>
+
+    <mat-menu #myMenu1="matMenu">
+        <ng-template matMenuContent>
+            <a *ngIf="!isLogged" (click)="signupAction()" mat-menu-item> SignUp </a>
+            <a *ngIf="!isLogged" (click)="forgotPasswordAction()" mat-menu-item> Forgot Password </a>
+            <a *ngIf="isLogged" routerLink="/logout" (click)="logout()" mat-menu-item> logout </a>
+        </ng-template>
+    </mat-menu>
+
+
+
+
 </mat-toolbar>

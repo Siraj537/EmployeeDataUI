@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup , FormBuilder,Validators} from '@angular/forms';
 import {student} from './student.model'
-import {ApiService} from '../shared/api.service'
+import {StudentCrudService} from '../shared/services/student/StudentCrudService.service'
 
 @Component({
   selector: 'app-student',
@@ -16,7 +16,7 @@ export class StudentComponent {
   studentData : student = new student;
   allStudentsData:any;
 
-  constructor(private formBuilder:FormBuilder, private api:ApiService){
+  constructor(private formBuilder:FormBuilder, private api:StudentCrudService){
 
   }
   ngOnInit(): void{
