@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,11 @@ export class LoginserviceService {
 
   loginUser(token: string) {
     localStorage.setItem("token", token);
+    return true;
+  }
+  
+  role(role: string) {
+    localStorage.setItem("role", role);
     return true;
   }
 
@@ -45,13 +50,15 @@ export class LoginserviceService {
     });
   }
 
-
-
   forgotPassword(data: any) {
     return this._http.post(this.url + "students/credentials/forgotpassword", data, {
       headers: new HttpHeaders().set('content-type', 'application/json')
     });
   }
 
-  
+  changePassword(data: any) {
+    return this._http.post(this.url + "students/credentials/changepassword", data, {
+      headers: new HttpHeaders().set('content-type', 'application/json')
+    });
+  }  
 }

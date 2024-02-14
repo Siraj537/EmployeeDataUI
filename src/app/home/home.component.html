@@ -1,6 +1,6 @@
 <div class="bootstrap-wrapper">
     <div class="container mt text-center" >
         <h1 class="text-center"> Welcome to Student Application </h1>
-        <button mat-raised-button color="accent" routerLink="/login">Click to login </button>
+        <button mat-raised-button color="accent" routerLink="/login" [hidden] = isLogged>Click to login </button>
     </div>
 </div>

@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentComponent } from './student/student.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,6 +24,11 @@ import { NgxUiLoaderModule, SPINNER } from 'ngx-ui-loader';
 import { MatMenuModule } from '@angular/material/menu';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import {MatSelectModule} from '@angular/material/select';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatCardModule } from '@angular/material/card';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ManagecourseComponent } from './coursemgmt/managecourse/managecourse.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor : "#7b1fa2",
@@ -42,13 +46,15 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    StudentComponent,
     LoginComponent,
     NavbarComponent,
     HomeComponent,
     SignupComponent,
-    ForgotPasswordComponent
-
+    ForgotPasswordComponent,
+    DashboardComponent,
+    ConfirmationComponent,
+    ChangepasswordComponent,
+    ManagecourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +72,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatDialogModule,
     MatSelectModule,
     MatMenuModule,
+    MatCardModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [AuthGuard, [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }]],

@@ -1,0 +1,13 @@
+<mat-card>
+    <b><span>Manage Courses</span></b>
+    <button mat-flat-button color="primary" class="float-right" (click)="handleAction()">
+        <mat-icon>add_circle</mat-icon>Add Course
+    </button>
+</mat-card>
+
+<mat-card>
+    <mat-form-field >
+        <mat-label> Filter </mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+</mat-card>

@@ -6,14 +6,27 @@
     <!-- <a *ngIf="!isLogged" style="padding-right: 100px" (click) = "signupAction()"> SignUp </a> -->
     <!-- <a *ngIf="isLogged" style="padding-right: 100px" routerLink="/logout" (click)="logout()"> logout </a> -->
 
-    <p mat-icon-button #menuTrigger1="matMenuTrigger" (mouseover)="openMyMenu(menuTrigger1)"
-        [matMenuTriggerFor]="myMenu1" style="padding-right: 100px;padding-top: 25px"> Actions </p>
+    <p mat-icon-button #menuTrigger="matMenuTrigger" *ngIf="!isLogged" (mouseover)="openMyMenu(menuTrigger)" [matMenuTriggerFor]="myMenubefore"
+        style="padding-right: 100px;padding-top: 25px"> Actions </p>
 
-    <mat-menu #myMenu1="matMenu">
+    <mat-menu #myMenubefore="matMenu">
         <ng-template matMenuContent>
-            <a *ngIf="!isLogged" (click)="signupAction()" mat-menu-item> SignUp </a>
-            <a *ngIf="!isLogged" (click)="forgotPasswordAction()" mat-menu-item> Forgot Password </a>
-            <a *ngIf="isLogged" routerLink="/logout" (click)="logout()" mat-menu-item> logout </a>
+            <div >
+                <a  (click)="signupAction()" mat-menu-item> SignUp </a>
+                <a  (click)="forgotPasswordAction()" mat-menu-item> Forgot Password </a>
+            </div>
+        </ng-template>
+    </mat-menu>
+
+    <p mat-icon-button #menuTrigger="matMenuTrigger" *ngIf="isLogged" (mouseover)="openMyMenu(menuTrigger)" [matMenuTriggerFor]="myMenuafter"
+        style="padding-right: 100px;padding-top: 25px"> <mat-icon>account_circle</mat-icon></p>
+
+    <mat-menu #myMenuafter="matMenu">
+        <ng-template matMenuContent>
+            <div>
+                <button (click)="changePasswordAction()" mat-menu-item><mat-icon>password</mat-icon> Change Password </button>
+                <button (click)="logout()" mat-menu-item><mat-icon>exit_to_app</mat-icon> logout </button>
+            </div>
         </ng-template>
     </mat-menu>
 

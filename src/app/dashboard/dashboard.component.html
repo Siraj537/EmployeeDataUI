@@ -1,0 +1,20 @@
+<body>
+    <mat-card>
+        <b><span> Courses </span></b>
+    </mat-card>
+    <br>
+    <div class="row" *ngFor=" let course of data">
+        <div class="column">
+            <div class="card">
+                <div class="container">
+                    <h2 class="title"> Name : {{ course.courseName }}</h2>
+                    <h2 class="title"> Tutor : {{ course.tutor }}</h2>
+                    <h2 class="title"> Fee : {{ course.fee }}</h2>
+                    <h2 class="title"> Duration : {{ course.duration }}</h2>
+                    <p><button class="button" [routerLink]="['']">Register</button></p>
+                </div>
+            </div>                
+        </div>
+    </div>
+</body>
+

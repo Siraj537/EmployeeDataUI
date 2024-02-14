@@ -25,13 +25,13 @@ export class LoginComponent {
         (res) => {
           console.log(res);
            this.loginservice.loginUser(res.toString());
+           this.loginservice.role(this.credentials.role);
            window.location.href = "/dashboard";
         },
         error => {
           console.log(error);
         }
       )
-
     }
     else {
       console.log("Username or password fields are blank ");
